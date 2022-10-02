@@ -20,12 +20,8 @@ final class FeedViewController: UIViewController {
         setupConstraint()
     }
 
-    private func addSubView() {
+    private func addSubView() {}
 
-    }
-
-    func setupConstraint() {
-
-    }
+    func setupConstraint() {}
 }
 
