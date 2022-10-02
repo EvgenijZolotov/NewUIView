@@ -8,23 +8,28 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
     }
-
+    
     private func setupViewController() {
-        view.backgroundColor = .green
-        addSubView()
-        setupConstraint()
-    }
-
-    private func addSubView() {
-
-    }
-
-    func setupConstraint() {
-
+        let feedViewController = FeedViewController()
+        let profileViewController = ProfileViewController()
+        
+        feedViewController.tabBarItem.image = UIImage(systemName: "house")
+        feedViewController.tabBarItem.title = "Feed"
+        
+        profileViewController.tabBarItem.image = UIImage(systemName: "person")
+        profileViewController.tabBarItem.title = "Profile"
+        
+        tabBar.backgroundColor = .systemBackground
+        tabBar.tintColor = .systemBlue
+        
+        viewControllers = [
+            feedViewController,
+            profileViewController
+        ]
     }
 }

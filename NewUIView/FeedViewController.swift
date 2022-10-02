@@ -7,4 +7,25 @@
 
 import UIKit
 
+final class FeedViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViewController()
+    }
+
+    private func setupViewController() {
+        view.backgroundColor = .green
+        addSubView()
+        setupConstraint()
+    }
+
+    private func addSubView() {
+
+    }
+
+    func setupConstraint() {
+
+    }
+}
 
