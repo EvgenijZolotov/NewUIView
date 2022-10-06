@@ -15,7 +15,7 @@ final class FeedViewController: UIViewController {
     }
 
     private func setupViewController() {
-        view.backgroundColor = .green
+        view.backgroundColor = .systemPurple
         addSubView()
         setupConstraint()
     }

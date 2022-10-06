@@ -16,11 +16,11 @@ final class TabBarController: UITabBarController {
     
     private func setupViewController() {
         let feedViewController = FeedViewController()
-        let profileViewController = ProfileViewController()
-        
+        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        // экраны view
         feedViewController.tabBarItem.image = UIImage(systemName: "house")
         feedViewController.tabBarItem.title = "Feed"
-        
+        // кнопки tabBar
         profileViewController.tabBarItem.image = UIImage(systemName: "person")
         profileViewController.tabBarItem.title = "Profile"
         
