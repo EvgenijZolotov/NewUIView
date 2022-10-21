@@ -15,21 +15,22 @@ final class TabBarController: UITabBarController {
     }
     
     private func setupViewController() {
-        let feedViewController = FeedViewController()
-        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        let feedViewController = UINavigationController(rootViewController: FeedViewController())
+        // заглушка второй кнопки на tabBar
+        let secondViewController = UINavigationController(rootViewController: UIViewController())
         // экраны view
         feedViewController.tabBarItem.image = UIImage(systemName: "house")
         feedViewController.tabBarItem.title = "Feed"
         // кнопки tabBar
-        profileViewController.tabBarItem.image = UIImage(systemName: "person")
-        profileViewController.tabBarItem.title = "Profile"
+        secondViewController.tabBarItem.image = UIImage(systemName: "person")
+        secondViewController.tabBarItem.title = "Profile"
         
         tabBar.backgroundColor = .systemBackground
         tabBar.tintColor = .systemBlue
         
         viewControllers = [
             feedViewController,
-            profileViewController
+            secondViewController
         ]
     }
 }

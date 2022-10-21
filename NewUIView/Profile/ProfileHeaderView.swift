@@ -9,42 +9,45 @@ import UIKit
 
 final class ProfileHeaderView: UIView {
     
-    private lazy var catImage: UIImageView = {
-        let imageView = UIImageView()
+    private lazy var avatarImageView: UIImageView = {
+        let avatarImageView = UIImageView()
         let image = UIImage(named: "Cat in Boots")
-        imageView.image = image
+        avatarImageView.image = image
         // скруглить картинку
-        imageView.layer.cornerRadius = 60
-        imageView.layer.masksToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        avatarImageView.layer.cornerRadius = 60
+        // окантовка картинки
+        avatarImageView.layer.borderWidth = 2
+        avatarImageView.layer.borderColor = UIColor.green.cgColor
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        return avatarImageView
     }()
     
-    private lazy var myLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hipster Cat"
-        label.font = UIFont(name: "bolt", size: 18)
-        label.backgroundColor = .lightGray
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var fullNameLabel: UILabel = {
+        let fullNameLabel = UILabel()
+        fullNameLabel.text = "Hipster Cat"
+        fullNameLabel.font = UIFont(name: "bolt", size: 18)
+        fullNameLabel.backgroundColor = .lightGray
+        fullNameLabel.textAlignment = .center
+        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        return fullNameLabel
     }()
     
-    private lazy var myLabelTwo: UILabel = {
-        let labelTwo = UILabel()
-        labelTwo.text = "Listening to music"
-        labelTwo.textColor = .systemGray
-        labelTwo.font = UIFont(name: "bolt", size: 14)
+    private lazy var statusLabel: UILabel = {
+        let statusLabel = UILabel()
+        statusLabel.text = "Listening to music"
+        statusLabel.textColor = .systemGray
+        statusLabel.font = UIFont(name: "bolt", size: 14)
       //  labelTwo.backgroundColor = .lightGray
-        labelTwo.textAlignment = .left
-        labelTwo.translatesAutoresizingMaskIntoConstraints = false
-        return labelTwo
+        statusLabel.textAlignment = .left
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        return statusLabel
     }()
     
-    private lazy var button: UIButton = {
+    private lazy var setStatusButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Show status", for: .normal)
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(setStatusButtonPressed), for: .touchUpInside)
         button.backgroundColor = .systemBlue
         button.titleLabel?.font = .systemFont(ofSize: 18)
         button.setTitleColor(.white, for: .normal)
@@ -54,25 +57,25 @@ final class ProfileHeaderView: UIView {
         return button
     }()
     
-    private let textField: UITextField = {
-        let testField = UITextField()
-        testField.font = UIFont(name: "font", size: 15)
-        testField.placeholder = "Waiting for something..."
-        testField.backgroundColor = .white
-        testField.textColor = .gray
-        testField.textAlignment = .left
-        testField.layer.cornerRadius = 12
-        testField.layer.masksToBounds = true
-        testField.translatesAutoresizingMaskIntoConstraints = false
-        return testField
+    private let statusTextField: UITextField = {
+        let statusTextField = UITextField()
+        statusTextField.font = UIFont(name: "font", size: 15)
+        statusTextField.placeholder = "Waiting for something..."
+        statusTextField.backgroundColor = .white
+        statusTextField.textColor = .gray
+        statusTextField.textAlignment = .left
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.layer.masksToBounds = true
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        return statusTextField
     }()
     
     @objc
-    private func buttonPressed() {
-        myLabelTwo.text = textField.text
+    private func setStatusButtonPressed() {
+        statusLabel.text = statusTextField.text
         // очищаем историю ввода
-        textField.text = ""
-        textField.endEditing(true)
+        statusTextField.text = ""
+        statusTextField.endEditing(true)
     }
     
     override init(frame: CGRect) {
@@ -91,75 +94,37 @@ final class ProfileHeaderView: UIView {
     }
     
     private func addSubView() {
-        addSubview(catImage)
-        addSubview(myLabel)
-        addSubview(button)
-        addSubview(textField)
-        addSubview(myLabelTwo)
+        addSubview(avatarImageView)
+        addSubview(fullNameLabel)
+        addSubview(setStatusButton)
+        addSubview(statusTextField)
+        addSubview(statusLabel)
     }
     
     func setupConstraint() {
         NSLayoutConstraint.activate([
             
-            catImage.widthAnchor.constraint(
-                equalToConstant: 120
-            ),
-            catImage.heightAnchor.constraint(
-                equalToConstant: 120
-            ),
-            catImage.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16
-            ),
-            catImage.topAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.topAnchor, constant: 16
-            ),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 120),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 120),
+            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             
+            fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 34),
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
             
-            myLabel.topAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.topAnchor, constant: 34
-            ),
-            myLabel.leadingAnchor.constraint(
-                equalTo: catImage.trailingAnchor, constant: 16
-            ),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
             
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusTextField.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 34),
             
-            button.heightAnchor.constraint(
-                equalToConstant: 50
-            ),
-            button.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16
-            ),
-            button.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16
-            ),
-            button.topAnchor.constraint(
-                equalTo: catImage.bottomAnchor, constant: 16
-            ),
-            
-            
-            textField.heightAnchor.constraint(
-                equalToConstant: 40
-            ),
-            textField.leadingAnchor.constraint(
-                equalTo: catImage.trailingAnchor, constant: 16
-            ),
-            textField.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16
-            ),
-            textField.topAnchor.constraint(
-                equalTo: myLabel.bottomAnchor, constant: 34
-            ),
-            
-            
-            myLabelTwo.leadingAnchor.constraint(
-                equalTo: catImage.trailingAnchor, constant: 16
-            ),
-            myLabelTwo.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16
-            ),
-            myLabelTwo.bottomAnchor.constraint(
-                equalTo: textField.topAnchor, constant: -6
-            )
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -6)
         ])
     }
 }
