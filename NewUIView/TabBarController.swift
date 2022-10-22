@@ -17,7 +17,7 @@ final class TabBarController: UITabBarController {
     private func setupViewController() {
         let feedViewController = UINavigationController(rootViewController: FeedViewController())
         // заглушка второй кнопки на tabBar
-        let secondViewController = UINavigationController(rootViewController: UIViewController())
+        let secondViewController = UINavigationController(rootViewController: ProfileViewController())
         // экраны view
         feedViewController.tabBarItem.image = UIImage(systemName: "house")
         feedViewController.tabBarItem.title = "Feed"
