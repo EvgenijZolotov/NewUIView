@@ -48,6 +48,7 @@ final class ProfileViewController: UIViewController {
         setupConstraint()
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         // скрыть tabBar
+        navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = true
     }
 
