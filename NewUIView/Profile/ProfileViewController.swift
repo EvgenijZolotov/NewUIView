@@ -25,7 +25,7 @@ final class ProfileViewController: UIViewController {
     @objc
     private func buttonPressed() {
         // отображение что кнопка работает
-        print(#function)
+//        print(#function)
     }
     
     // созд элемента

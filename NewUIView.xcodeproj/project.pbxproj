@@ -14,7 +14,7 @@
 		E270518328E9F31B008E185A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270518228E9F31B008E185A /* TabBarController.swift */; };
 		E270518528E9F364008E185A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270518428E9F364008E185A /* FeedViewController.swift */; };
 		E270518728E9F380008E185A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270518628E9F380008E185A /* ProfileViewController.swift */; };
-		E270518A28E9F3ED008E185A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270518928E9F3ED008E185A /* ProfileHeaderView.swift */; };
+		E270518A28E9F3ED008E185A /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270518928E9F3ED008E185A /* ProfileTableHeaderView.swift */; };
 		E274A0FA2903EBA6003F5A4A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274A0F92903EBA6003F5A4A /* LogInViewController.swift */; };
 		E274A0FD2903FBED003F5A4A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274A0FC2903FBED003F5A4A /* UIView.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		E270518228E9F31B008E185A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E270518428E9F364008E185A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		E270518628E9F380008E185A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E270518928E9F3ED008E185A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		E270518928E9F3ED008E185A /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		E274A0F92903EBA6003F5A4A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E274A0FC2903FBED003F5A4A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,7 +80,7 @@
 		E270518828E9F3BC008E185A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				E270518928E9F3ED008E185A /* ProfileHeaderView.swift */,
+				E270518928E9F3ED008E185A /* ProfileTableHeaderView.swift */,
 				E270518628E9F380008E185A /* ProfileViewController.swift */,
 				E274A0F92903EBA6003F5A4A /* LogInViewController.swift */,
 			);
@@ -167,7 +167,7 @@
 			files = (
 				E274A0FD2903FBED003F5A4A /* UIView.swift in Sources */,
 				E270518328E9F31B008E185A /* TabBarController.swift in Sources */,
-				E270518A28E9F3ED008E185A /* ProfileHeaderView.swift in Sources */,
+				E270518A28E9F3ED008E185A /* ProfileTableHeaderView.swift in Sources */,
 				E270516F28E9F19F008E185A /* AppDelegate.swift in Sources */,
 				E274A0FA2903EBA6003F5A4A /* LogInViewController.swift in Sources */,
 				E270518728E9F380008E185A /* ProfileViewController.swift in Sources */,
